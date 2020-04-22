@@ -20,7 +20,7 @@ async function readFolderAsync (folder) {
     try {
         const entries = await readdir(folder)
         console.log(JSON.stringify(entries));
-    }catch(err){
+    } catch(err){
         console.log('could not read folder ' + folder)
     }
 }
