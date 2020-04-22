@@ -26,7 +26,7 @@ async function readFolderAsync (folder) {
 }
 
 function getApiRoutes(manifest) {
-    return Object.fromEntries(manifest.entries(manifest).filter(([key, _]) => key.startsWith('/api')))
+    return Object.fromEntries(Object.entries(manifest).filter(([key, _]) => key.startsWith('/api')))
 }
 
 function netlifyPlugin(conf) {
@@ -37,7 +37,6 @@ function netlifyPlugin(conf) {
             const manifest = await readPagesManifest()
             if(!manifest) {
                 console.log('No nextjs pages-manifest file found. Will exit early')
-                await readFolderAsync(`${nextPath}/server`)
                 return
             }
             console.log('Read through to find all api routes')
