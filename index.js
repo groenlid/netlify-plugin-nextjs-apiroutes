@@ -3,8 +3,8 @@ const { promises } = fs
 //import { promises as fs } from "fs"
 const { appendFile, writeFile, readFile, readdir } = promises
 
-const nextPath = ".next"
-const manifestPath = `${nextPath}/pages-manifest.json`
+const nextPath = "./.next"
+const manifestPath = `${nextPath}/server/pages-manifest.json`
 
 async function readPagesManifest() {
     try {
@@ -37,7 +37,7 @@ function netlifyPlugin(conf) {
             const manifest = await readPagesManifest()
             if(!manifest) {
                 console.log('No nextjs pages-manifest file found. Will exit early')
-                await readFolderAsync('.')
+                await readFolderAsync(`${nextPath}/server`)
                 return
             }
             console.log('Read through to find all api routes')
