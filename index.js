@@ -26,7 +26,7 @@ async function readFolderAsync (folder) {
 }
 
 function getApiRoutes(manifest) {
-    return Object.fromEntries(Object.entries(manifest).filter(([key, _]) => key.startsWith('/api')))
+    return Object.entries(manifest).filter(([key, _]) => key.startsWith('/api'))
 }
 
 function netlifyPlugin(conf) {
@@ -41,6 +41,11 @@ function netlifyPlugin(conf) {
             }
             console.log('Read through to find all api routes')
             const apiRoutes = getApiRoutes(manifest)
+            if(!apiRoutes.length) {
+                console.log('Did not find any api routes in your next.js structure. Will exit')
+                return
+            }
+            console.log(`Found api routes in your build-output: ${JSON.stringify(apiRoutes)}`)
             console.log('Add rewrite rule to redirect file')
             console.log('Add a new handler to handle the nextjs api route')
         }
