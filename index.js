@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { promises } = fs
 //import { promises as fs } from "fs"
-const { appendFile, writeFile, readFile } = fs
+const { appendFile, writeFile, readFile } = promises
 
 const nextPath = ".next"
 const manifestPath = `${nextPath}/pages-manifest.json`
