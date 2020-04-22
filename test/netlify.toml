@@ -1,0 +1,6 @@
+[build]
+    publish = "out/"
+    command = "npm run build && npm run export"
+    functions = "functions/"
+[[plugins]]
+package = "netlify-plugin-nextjs-apiroutes"
