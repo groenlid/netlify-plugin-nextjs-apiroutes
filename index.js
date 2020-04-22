@@ -23,7 +23,7 @@ function getApiRoutes(manifest) {
 function netlifyPlugin(conf) {
     return {
         name: 'netlify-plugin-nextjs-apiroutes',
-        onPackage: async () => {
+        onPostBuild: async () => {
             console.log('Find nextjs pages-manifest.json')
             const manifest = await readPagesManifest()
             if(!manifest) {
