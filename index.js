@@ -1,4 +1,6 @@
-import { promises as fs } from "fs"
+const fs = require('fs')
+const { promises } = fs
+//import { promises as fs } from "fs"
 const { appendFile, writeFile, readFile } = fs
 
 const nextPath = ".next"
