@@ -4,7 +4,7 @@ const { promises } = fs
 const { appendFile, writeFile, readFile, readdir } = promises
 
 const nextPath = "./.next"
-const manifestPath = `${nextPath}/server/pages-manifest.json`
+const manifestPath = `${nextPath}/serverless/pages-manifest.json`
 
 async function readPagesManifest() {
     try {
@@ -31,7 +31,6 @@ function getApiRoutes(manifest) {
 
 function netlifyPlugin(conf) {
     return {
-        name: 'netlify-plugin-nextjs-apiroutes',
         async onPostBuild(opts) {
             console.log('Find nextjs pages-manifest.json')
             const manifest = await readPagesManifest()

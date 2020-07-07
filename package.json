@@ -21,5 +21,9 @@
     "url": "https://github.com/groenlid/netlify-plugin-nextjs-apiroutes/issues"
   },
   "homepage": "https://github.com/groenlid/netlify-plugin-nextjs-apiroutes#readme",
-  "dependencies": {}
+  "dependencies": {
+    "next": "^9.3.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
 }

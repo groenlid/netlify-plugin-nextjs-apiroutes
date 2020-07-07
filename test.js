@@ -1,0 +1,1 @@
+const { apiResolver } = require('next/dist/next-server/server/api-utils')
